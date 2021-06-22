@@ -1,0 +1,11 @@
+<h1>{{ title }}</h1>
+
+<p>Tracklist :</p>
+<ol>
+  {% assign tracks = collections.tracks | byMovie: page.fileSlug %} {% for track
+  in tracks %}
+  <li>
+    <a href="{{ track.url }}">{{ track.data.title }}</a>
+  </li>
+  {% endfor %}
+</ol>

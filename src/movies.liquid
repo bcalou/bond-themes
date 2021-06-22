@@ -1,0 +1,11 @@
+<h1>All movies</h1>
+
+<ol>
+  {% for movie in collections.movies %}
+  <li>
+    <a href="{{ movie.url }}">{{ movie.data.title }} ({{ movie.data.year }})</a>
+  </li>
+  {% endfor %}
+</ol>
+
+<a href="/">Back to home</a>
