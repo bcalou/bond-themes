@@ -1,5 +1,10 @@
+{% capture description %}Review of the track {{ title }}{% endcapture %} {%
+include partials/header.liquid, title: title, description: description %}
+
 <header>
   <h1>{{ track }}. {{ title }}</h1>
   <p>Duration : {% duration from to %}</p>
   <p>Movie timecode : {{ from }}</p>
 </header>
+
+{% include partials/footer.liquid %}
