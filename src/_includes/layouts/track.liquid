@@ -1,10 +1,23 @@
-{% capture description %}Review of the track {{ title }}{% endcapture %} {%
-include partials/header.liquid, title: title, description: description %}
+{% capture description %}Review of the track {{ title }}{% endcapture %}
+{% include partials/header.liquid, title: title, description: description %}
 
 <header>
   <h1>{{ track }}. {{ title }}</h1>
   <p>Duration : {% duration from to %}</p>
   <p>Movie timecode : {{ from }}</p>
 </header>
+
+{% assign previousTrack = collections.tracks | getPreviousCollectionItem: page %}
+{% assign nextTrack = collections.tracks | getNextCollectionItem: page %}
+
+{% if previousTrack.url and previousTrack.data.movie == movie %}
+  Previous track :
+  <a href="{{ previousTrack.url}}">{{ previousTrack.data.title }}</a>
+{% endif %}
+
+{% if nextTrack.url and nextTrack.data.movie == movie %}
+  Next track :
+  <a href="{{ nextTrack.url}}">{{ nextTrack.data.title }}</a>
+{% endif %}
 
 {% include partials/footer.liquid %}
