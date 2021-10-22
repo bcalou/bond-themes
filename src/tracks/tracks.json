@@ -1,4 +1,4 @@
 {
   "layout": "layouts/track.liquid",
-  "permalink": "/movies/{{movie}}/{{track}}/"
+  "permalink": "/movies/{{movie}}/{{index}}/"
 }

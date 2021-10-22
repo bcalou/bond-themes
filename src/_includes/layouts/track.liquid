@@ -2,10 +2,36 @@
 {% include partials/header.liquid, title: title, description: description %}
 
 <header>
-  <h1>{{ track }}. {{ title }}</h1>
+  <h1>{{ index }}. {{ title }}</h1>
   <p>Duration : {% duration from to %}</p>
   <p>Movie timecode : {{ from }}</p>
+  <p>Composer : {{ composer }}</p>
+
+  {% if original_piece_title %}
+    <p>
+      From the original piece :
+      <cite>{{ original_piece_title }}</cite> ({{original_piece_year}})
+    </p>
+  {% endif %}
+
+  <p>Released : {{ released }}</p>
+  <p>{{ released_details }}</p>
+
+  {% if interest %}
+    <p>Interest : {{ interest }}</p>
+  {% endif %}
 </header>
+
+{% trackImage movie, index, title %}
+
+{{ comment }}
+
+{% if trivia %}
+  <aside>
+    <header>Did you know?</header>
+    {{ trivia }}
+  </aside>
+{% endif %}
 
 {% assign previousTrack = collections.tracks | getPreviousCollectionItem: page %}
 {% assign nextTrack = collections.tracks | getNextCollectionItem: page %}

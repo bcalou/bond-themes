@@ -3,14 +3,86 @@
 
 <h1>{{ title }}</h1>
 
-<p>Tracklist :</p>
+<p>Themes :</p>
 <ol>
-  {% assign tracks = collections.tracks | byMovie: page.fileSlug %} {% for track
-  in tracks %}
-  <li>
-    <a href="{{ track.url }}">{{ track.data.track }}. {{ track.data.title }}</a>
-  </li>
+  {% assign themes = collections.themes %}
+  {% for theme in themes %}
+    <li>
+      <a href="{{ theme.url }}">{{ theme.data.title }}<a>
+
+      {% if theme._parts %}
+        <ol>
+          {% for part in theme._parts %}
+            <li>{{ part.title }}</li>
+          {% endfor %}
+        </ol>
+      {% endif %}
+    </li>
   {% endfor %}
 </ol>
+
+<p>Tracklist :</p>
+<ol>
+  {% assign tracks = collections.tracks | byMovie: page.fileSlug %}
+  {% for track in tracks %}
+    <li>
+      <a href="{{ track.url }}">
+        {{ track.data.index }}. {{ track.data.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ol>
+
+<h2>Soundtrack length: 32m 11s</h2>
+<h3>29.38% of the movie length</h3>
+<h3>95.08% of the score is thematic</h3>
+
+<p><cite>Dr. No</cite> is the only Bond film that manages to have more material on its soundtrack release than in the actual movie. Excluding the opening titles, only 2 tracks are longer than 2 minutes (<cite>Under The Mango Tree (Party)</cite> and <cite>Killing The Guard</cite>). It is by far the shortest score of the series.</p>
+<p>To be fair, it has a perfectly standard amount of music for a movie of its time. It's just that music would become much more important in the establishment of the 007 cinematographic style in later films. A Bond movie is often like a choregraphed spectacle: it has to be musical. Compared to the other films, <cite>Dr. No</cite> seems almost shy. Like for most elements, the formula is not quite complete yet.</p>
+<p>This "silence" is especially noticable in the Dr. No's lair scenes. Right after <cite>Killing The Guard</cite>, we get a 12 minutes silence as Bond and Honey are captured, decontaminated and brought to their room. This is soon followed by a <strong>15 minutes silence</strong> between <cite>Meeting the Doctor</cite> and <cite>Death of Dr. No</cite>. Intentionnal or not, I always found the lack of music here to be very effective. It gives an eerie feeling to everything surrounding the Doctor. No more mango trees and nice spy music: danger is close. This is the longest musical silence we ever get in a Bond film.</p>
+<p>This score has much more thematic interest than it could seem on a first viewing. In fact, only three short tracks are not referencing any kind of theme: <cite>Gunbarrel</cite>, <cite>Bongos</cite> and <cite>Queen's Club</cite> (which is a background music).</p>
+
+<div class="m-timeline">
+  <div class="m-timeline__track" style="--data-start: 0%; --data-length: 0.41%"></div>
+  <div class="m-timeline__track" style="--data-start: 0.41%; --data-length: 1.14%"></div>
+  <div class="m-timeline__track" style="--data-start: 1.55%; --data-length: 0.58%"></div>
+  <div class="m-timeline__track" style="--data-start: 2.13%; --data-length: 0.88%"></div>
+  <div class="m-timeline__track" style="--data-start: 4.47%; --data-length: 0.49%"></div>
+  <div class="m-timeline__track" style="--data-start: 7.3%; --data-length: 0.32%"></div>
+  <div class="m-timeline__track" style="--data-start: 7.97%; --data-length: 0.9%"></div>
+  <div class="m-timeline__track" style="--data-start: 13.45%; --data-length: 0.62%"></div>
+  <div class="m-timeline__track" style="--data-start: 15.26%; --data-length: 0.82%"></div>
+  <div class="m-timeline__track" style="--data-start: 17.05%; --data-length: 0.29%"></div>
+  <div class="m-timeline__track" style="--data-start: 18.23%; --data-length: 1.03%"></div>
+  <div class="m-timeline__track" style="--data-start: 23.78%; --data-length: 0.61%"></div>
+  <div class="m-timeline__track" style="--data-start: 25.73%; --data-length: 1.23%"></div>
+  <div class="m-timeline__track" style="--data-start: 27.60%; --data-length: 1.00%"></div>
+  <div class="m-timeline__track" style="--data-start: 28.60%; --data-length: 1.78%"></div>
+  <div class="m-timeline__track" style="--data-start: 30.40%; --data-length: 2.10%"></div>
+  <div class="m-timeline__track" style="--data-start: 32.50%; --data-length: 0.32%"></div>
+  <div class="m-timeline__track" style="--data-start: 37.17%; --data-length: 0.53%"></div>
+  <div class="m-timeline__track" style="--data-start: 37.70%; --data-length: 0.59%"></div>
+  <div class="m-timeline__track" style="--data-start: 39.40%; --data-length: 1.13%"></div>
+  <div class="m-timeline__track" style="--data-start: 45.22%; --data-length: 0.38%"></div>
+  <div class="m-timeline__track" style="--data-start: 47.30%; --data-length: 0.61%"></div>
+  <div class="m-timeline__track" style="--data-start: 51.50%; --data-length: 0.68%"></div>
+  <div class="m-timeline__track" style="--data-start: 54.31%; --data-length: 1.52%"></div>
+  <div class="m-timeline__track" style="--data-start: 56.00%; --data-length: 0.53%"></div>
+  <div class="m-timeline__track" style="--data-start: 59.52%; --data-length: 0.96%"></div>
+  <div class="m-timeline__track" style="--data-start: 63.27%; --data-length: 2.43%"></div>
+  <div class="m-timeline__track" style="--data-start: 76.56%; --data-length: 0.73%"></div>
+  <div class="m-timeline__track" style="--data-start: 79.81%; --data-length: 1.22%"></div>
+  <div class="m-timeline__track" style="--data-start: 94.66%; --data-length: 1.19%"></div>
+  <div class="m-timeline__track" style="--data-start: 95.86%; --data-length: 0.20%"></div>
+  <div class="m-timeline__track" style="--data-start: 96.06%; --data-length: 0.76%"></div>
+  <div class="m-timeline__track" style="--data-start: 98.46%; --data-length: 1.26%"></div>
+  <div class="m-timeline__track" style="--data-start: 99.73%; --data-length: 0.27%"></div>
+</div>
+
+<input type="radio" name="theme" checked>All
+<input type="radio" name="theme">Themes only
+<input type="radio" name="theme">Non-thematic only
+<input type="radio" name="theme">James Bond Theme
+<input type="radio" name="theme">Dr. No's Theme
 
 {% include partials/footer.liquid %}
