@@ -1,6 +1,7 @@
 ---
-movie: dn
+movie: dr-no
 index: 1d
+slug: three-blind-mice
 
 title: Three Blind Mice
 from: 00:01:42

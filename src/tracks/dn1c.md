@@ -1,6 +1,7 @@
 ---
-movie: dn
+movie: dr-no
 index: 1c
+slug: bongos
 
 title: Bongos
 from: 00:01:42

@@ -1,6 +1,7 @@
 ---
-movie: dn
+movie: dr-no
 index: 2
+slug: death-of-mary
 
 title: Death of Mary
 from: 00:01:42

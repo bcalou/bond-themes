@@ -2,6 +2,8 @@ const collections = require('./src/11ty/collections');
 const filters = require('./src/11ty/filters');
 const duration = require('./src/11ty/shortcodes/duration').duration;
 const trackImage = require('./src/11ty/shortcodes/trackImage').trackImage;
+const icon = require('./src/11ty/shortcodes/icon').icon;
+const movieTitle = require('./src/11ty/shortcodes/movieTitle').movieTitle;
 const sass = require("eleventy-plugin-sass");
 const babel = require('eleventy-plugin-babel');
 
@@ -21,6 +23,8 @@ module.exports = function (eleventyConfig) {
   // Shortcodes
   eleventyConfig.addLiquidShortcode('duration', duration);
   eleventyConfig.addLiquidShortcode('trackImage', trackImage);
+  eleventyConfig.addLiquidShortcode('icon', icon);
+  eleventyConfig.addLiquidShortcode('movieTitle', movieTitle);
 
   // SASS
   eleventyConfig.addPlugin(sass, {
@@ -38,6 +42,7 @@ module.exports = function (eleventyConfig) {
   // });
 
   eleventyConfig.addPassthroughCopy("src/js");
+  eleventyConfig.addPassthroughCopy("src/assets/fonts");
 
   return {
     dir: {

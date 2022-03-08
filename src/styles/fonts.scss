@@ -1,0 +1,13 @@
+@mixin font($font-family, $file, $font-weight: normal, $font-style: normal) {
+  @font-face {
+    font-family: $font-family;
+    src: url('#{$file}.woff2') format('woff2');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+@include font('Falling Sky', '../assets/fonts/falling_sky');
+@include font('Falling Sky', '../assets/fonts/falling_sky_oblique', normal, italic);
+@include font('Falling Sky', '../assets/fonts/falling_sky_semi_bold', 700);
+@include font('Falling Sky', '../assets/fonts/falling_sky_light', lighter);

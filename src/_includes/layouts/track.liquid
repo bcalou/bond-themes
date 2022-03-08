@@ -1,49 +1,96 @@
 {% capture description %}Review of the track {{ title }}{% endcapture %}
-{% include partials/header.liquid, title: title, description: description %}
+{% include partials/header.liquid, title: title, description: descrip tion %}
 
 <header>
-  <h1>{{ index }}. {{ title }}</h1>
-  <p>Duration : {% duration from to %}</p>
-  <p>Movie timecode : {{ from }}</p>
-  <p>Composer : {{ composer }}</p>
+  <nav class="breadcrumb">
+    <ol>
+      <li>
+        <a href="/">Home</a>
+        {% icon "arrow" %}
+      </li>
+      <li>  
+        <a href="/movies/{{movie}}">{% movieTitle movie %}</a>
+        {% icon "arrow" %}
+      </li>
+      <li>
+        <span>{{ title }}</span>
+      </li>
+    </ol>
+  </nav>
 
-  {% if original_piece_title %}
-    <p>
-      From the original piece :
-      <cite>{{ original_piece_title }}</cite> ({{original_piece_year}})
-    </p>
-  {% endif %}
-
-  <p>Released : {{ released }}</p>
-  <p>{{ released_details }}</p>
-
-  {% if interest %}
-    <p>Interest : {{ interest }}</p>
-  {% endif %}
+  <div class="title">
+    <span class="title__dots" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span>{{ index }}</span>
+    </span>
+    <h1>{{ title }}</h1>
+    {% if interest %}
+      {% assign range = (1..interest) %}
+      {% for i in range %}
+        {% icon "star" "Interest" %}
+      {% endfor %}
+    {% endif %}
+  </div>
 </header>
 
-{% trackImage movie, index, title %}
+<main>
+  <div class="image">
+    {% trackImage movie, index, title %}
+  </div>
+  
+  {{ comment }}
 
-{{ comment }}
+  <aside class="infos">
 
-{% if trivia %}
-  <aside>
-    <header>Did you know?</header>
-    {{ trivia }}
+    <div class="infos__list">
+      <div>{% icon "note" "Composer" %}{{ composer }}</div>
+      <div>{% icon "timer" "Duration" %}{% duration from to %}</div>
+      <div>{% icon "movie" "Movie timecode" %}{{ from }}</div>
+    
+      {% if original_piece_title %}
+        <div>
+          {% icon "loop" "Original piece" %}From
+          <cite>{{ original_piece_title }}</cite> ({{original_piece_year}})
+        </div>
+      {% endif %}
+
+      <div>{% icon "album" "Release" %}Unreleased, but…</div>
+    </div>
+
+    <div>{{ released_details }}</div>
   </aside>
-{% endif %}
+  
+  {% if trivia %}
+    <aside class="trivia">
+      <header>
+        <span></span>
+        <span></span>
+        <span></span>
+        <h2>Did you know?</h2>
+      </header>
+      {{ trivia }}
+    </aside>
+  {% endif %}
+</main>
 
-{% assign previousTrack = collections.tracks | getPreviousCollectionItem: page %}
-{% assign nextTrack = collections.tracks | getNextCollectionItem: page %}
-
-{% if previousTrack.url and previousTrack.data.movie == movie %}
-  Previous track :
-  <a href="{{ previousTrack.url}}">{{ previousTrack.data.title }}</a>
-{% endif %}
-
-{% if nextTrack.url and nextTrack.data.movie == movie %}
-  Next track :
-  <a href="{{ nextTrack.url}}">{{ nextTrack.data.title }}</a>
-{% endif %}
+<div class="tracksNav">
+  {% assign previousTrack = collections.tracks | getPreviousCollectionItem: page %}
+  {% assign nextTrack = collections.tracks | getNextCollectionItem: page %}
+  
+  {% if previousTrack.url and previousTrack.data.movie == movie %}
+    <a href="{{ previousTrack.url}}">
+      {% icon "skip_previous" "Previous track" %}
+      {{ previousTrack.data.title }}
+    </a>
+  {% endif %}
+  
+  {% if nextTrack.url and nextTrack.data.movie == movie %}
+    <a href="{{ nextTrack.url}}">
+      {% icon "skip_next" "Next track" %}
+      {{ nextTrack.data.title }}
+    </a>
+  {% endif %}
+</div>
 
 {% include partials/footer.liquid %}

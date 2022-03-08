@@ -1,11 +1,65 @@
-* {
-  box-sizing: border-box;
+@import './vendors/reset.scss';
+
+@import './colors.scss';
+@import './fonts.scss';
+
+@import './global.scss';
+
+@import './blocs/breadcrumb.scss';
+@import './blocs/infos.scss';
+@import './blocs/title.scss';
+@import './blocs/tracksNav.scss';
+@import './blocs/trivia.scss';
+
+.image {
+  height: 80vh;
+  width: 80vh;
+  top: 10vh;
+  position: fixed;
+  left: 35%;
+  z-index: -1;
+  
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: linear-gradient(
+      to right,
+      #0D090E,
+      #0D090E 30%,
+      #0D090ECC 45%,
+      #0D090E99 55%,
+      #0D090E00 75%
+      );
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+    }
+    
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--red-dark);
+    mix-blend-mode: color;
+    border-radius: 100%;
+  }
 }
 
 .m-timeline {
   height: 90vh;
   width: 50px;
-  border: 2px solid #869DE1;
+  border: 2px solid #cc93d8;
   position: relative;
   
   @media (min-width: 768px) {
@@ -20,7 +74,7 @@
   top: var(--data-start);
   height: var(--data-length);
   min-height: 1px;
-  background-color: #F3D72E;
+  background-color: #68b0e2;
   
   @media (min-width: 768px) {
     bottom: 0;
@@ -39,4 +93,49 @@
       border-left: 1px solid white;
     }
   }
+}
+
+.m-releases {
+  height: 90vh;
+  width: 50px;
+  border: 2px solid #cc93d8;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  
+  @media (min-width: 768px) {
+    height: 50px;
+    width: 100%;
+    flex-direction: row;
+  }
+}
+
+.m-releases__part {
+  flex-basis: 0;
+  flex-grow: var(--percentage);
+}
+
+.m-releases__part--yes {
+  background-color: green;
+}
+
+.m-releases__part--yes_but {
+  background-color: greenyellow;
+}
+
+.m-releases__part--no_but {
+  background-color: orange;
+}
+
+.m-releases__part--no {
+  background-color: red;
+}
+
+svg {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
 }

@@ -4,7 +4,6 @@ abcTemplate.innerHTML = `
   <article class="abcTrack">
     <div class="abcTrack__sheet"></div>
     <button>Play</button>
-    <hr/>
   </article>
 `;
 

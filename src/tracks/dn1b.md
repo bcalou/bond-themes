@@ -1,6 +1,7 @@
 ---
-movie: dn
+movie: dr-no
 index: 1b
+slug: james-bond-theme
 
 title: James Bond Theme
 from: 00:00:27
@@ -11,7 +12,7 @@ composer: Monty Norman, John Barry
 released: YES_BUT
 released_details: This is the eponymous track from the official release, but played in a very different order. Editing is required.
 
-interest: VERY_HIGH
+interest: 3
 
 themes: james_bond|swing|original, james_bond|climax|original, james_bond|stabs|original, james_bond|bass|original, james_bond|coda|original
 

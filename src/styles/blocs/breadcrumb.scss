@@ -1,0 +1,30 @@
+.breadcrumb {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
+
+  ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+
+    svg {
+      position: relative;
+      top: .0625rem;
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}

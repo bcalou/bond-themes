@@ -1,0 +1,27 @@
+.trivia {
+  margin-top: 2rem;
+  // padding: 1rem;
+  border-radius: 6px;
+
+  header {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+
+    span {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      background-color: var(--green-dark);
+      box-shadow: 0 0 2px 0 var(--green-dark);
+    }
+
+    h2 {
+      margin-left: .375rem;
+    }
+  }
+}
